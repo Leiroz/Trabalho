@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Acessível</title>
+  <style>
+    :root {
+      --font-size: 16px;
+      --bg-color: #ffffff;
+      --text-color: #000000;
+    }
+
+    body {
+      font-size: var(--font-size);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .controls {
+      margin-bottom: 20px;
+    }
+
+    button {
+      margin-right: 10px;
+      padding: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #007BFF;
+      color: white;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button onclick="aumentarFonte()">Aumentar Fonte</button>
+    <button onclick="diminuirFonte()">Diminuir Fonte</button>
+    <button onclick="alternarModo()">Modo Claro/Escuro</button>
+  </div>
+
+  <h1>Bem-vindo ao Site Acessível</h1>
+  <p>Este site foi desenvolvido para demonstrar boas práticas de acessibilidade, permitindo ajuste de fonte e alternância de modo claro e escuro.</p>
+
+  <script>
+    let tamanhoFonte = 16;
+    let modoEscuro = false;
+
+    function aumentarFonte() {
+      tamanhoFonte += 2;
+      document.documentElement.style.setProperty('--font-size', tamanhoFonte + 'px');
+    }
+
+    function diminuirFonte() {
+      if (tamanhoFonte > 10) {
+        tamanhoFonte -= 2;
+        document.documentElement.style.setProperty('--font-size', tamanhoFonte + 'px');
+      }
+    }
+
+    function alternarModo() {
+      modoEscuro = !modoEscuro;
+      if (modoEscuro) {
+        document.documentElement.style.setProperty('--bg-color', '#121212');
+        document.documentElement.style.setProperty('--text-color', '#ffffff');
+      } else {
+        document.documentElement.style.setProperty('--bg-color', '#ffffff');
+        document.documentElement.style.setProperty('--text-color', '#000000');
+      }
+    }
+  </script>
+</body>
+</html>
